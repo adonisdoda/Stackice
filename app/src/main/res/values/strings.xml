@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Stackice</string>
+
+    <string name="PrimeiroSlide">Primeiro Slider</string>
+
+    <string name="SegundoSlide">Segundo Slider</string>
+
+    <string name="TerceiroSlide">Terceiro Slider</string>
 </resources>
