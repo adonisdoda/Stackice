@@ -23,7 +23,7 @@ public class MainActivity extends IntroActivity {
                 .build());
 
         addSlide(new FragmentSlide.Builder()
-                .fragment(R.layout.terceiro_slider)
+                .fragment(R.layout.segundo_slider)
                 .build());
 
 
