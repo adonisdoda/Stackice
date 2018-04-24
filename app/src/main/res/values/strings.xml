@@ -7,4 +7,6 @@
 
     <string name="TerceiroSlide">Terceiro Slider</string>
 
+    <string name="pref_previously_started"></string>
+
 </resources>
