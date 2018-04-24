@@ -7,22 +7,24 @@ import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
+import com.heinrichreimersoftware.materialintro.slide.Slide;
 
 public class SlideActivity extends IntroActivity {
 
-     private static final String ARQUIVO_PREERENCIA = "ARQUIVOPREFERENCIA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
 
 
+        //Criação dos slides
         setButtonBackVisible(false);
         setButtonNextVisible(false);
 
@@ -52,6 +54,11 @@ public class SlideActivity extends IntroActivity {
                 .build());
 
 
+    }
+//Botão Avançar Tela
+    public void avançar_tela(View view){
+        startActivity(new Intent(this,InicioActivity.class));
+        finish();
     }
 
 }
