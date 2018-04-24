@@ -30,7 +30,7 @@ public class SlideActivity extends IntroActivity {
                 .background(android.R.color.holo_blue_light)
                 .backgroundDark(android.R.color.white)
                 .fragment(R.layout.primeiro_slider)
-                .build() );
+                .build() ) ;
 
         addSlide(new FragmentSlide.Builder()
                 .background(android.R.color.holo_blue_light)
