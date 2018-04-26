@@ -16,10 +16,14 @@
             android:theme="@style/Theme.Intro">
             <intent-filter>  <action android:name="android.intent.action.MAIN" />  <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
          </activity>
 
+
         //Inicio Activo
-        <activity android:name=".InicioActivity">  </activity>
+        <activity android:name=".InicioActivity">
+
+        </activity>
 
         //Activity de verificação
         <activity android:name=".VerificacaoPrimeiraVezActivity">
