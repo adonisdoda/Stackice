@@ -39,6 +39,16 @@ dependencies {
     implementation "com.google.firebase:firebase-ads:11.8.0"
 
     //Bibliotecas para Abas
+    implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+    //Optional: see how to use the utility.
+    implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
+
+
+    /*Dependências de RecyclerView,CardView etc */
+    implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.google.code.gson:gson:2.8.0'
+
 
 
 }
