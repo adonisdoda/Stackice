@@ -18,7 +18,7 @@ public class VerificacaoPrimeiraVezActivity extends AppCompatActivity {
             getSharedPreferences("PREFERENCE",MODE_PRIVATE).edit().putBoolean("isfirstrun",false).commit();
             startActivity(intent);
         }else{
-            Intent intentinicio = new Intent(getApplicationContext(), InicioActivity.class );
+            Intent intentinicio = new Intent(getApplicationContext(), InicialActivity.class );
             startActivity(intentinicio);
         }
     }

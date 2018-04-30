@@ -48,7 +48,7 @@ public class SlideActivity extends IntroActivity {
     }
 //Botão Avançar Tela
     public void avançar_tela(View view){
-        startActivity(new Intent(this,InicioActivity.class));
+        startActivity(new Intent(this,InicialActivity.class));
         finish();
     }
 
