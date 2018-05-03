@@ -49,6 +49,11 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.google.code.gson:gson:2.8.0'
 
+    /*Dependêcias Picaso */
+
+    //implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 
 }

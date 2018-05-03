@@ -9,6 +9,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.net.ssl.HttpsURLConnection;
+
 public class HTTPDataHandler {
     static String stream = null;
 
@@ -41,9 +43,9 @@ public class HTTPDataHandler {
             }
 
 
-        } catch (MalformedURLException e) {
+          } catch (MalformedURLException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+          } catch (IOException e) {
             e.printStackTrace();
         }
 
