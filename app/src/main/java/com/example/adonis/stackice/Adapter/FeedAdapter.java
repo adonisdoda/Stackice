@@ -11,16 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.adonis.stackice.Interface.ItemClickListener;
 import com.example.adonis.stackice.Model.RSSObject;
 import com.example.adonis.stackice.R;
+import com.example.adonis.stackice.NavegadorView;
 import com.squareup.picasso.Picasso;
 
 
 class FeedViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
-    public TextView txtTitle,txtPubDate,txtAuthor;
+    public TextView txtTitle,txtAuthor,txtPubDate;
     private ItemClickListener itemClickListener;
     public ImageView imgNoticia;
 
@@ -59,9 +59,11 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
     private Context mContext;
     private LayoutInflater inflater;
 
+
     public FeedAdapter(RSSObject rssObject, Context mContext) {
         this.rssObject = rssObject;
         this.mContext = mContext;
+
         inflater = LayoutInflater.from(mContext);
     }
 
@@ -76,11 +78,16 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
 
         holder.txtTitle.setText(rssObject.getItems().get(position).getTitle());
         holder.txtPubDate.setText(rssObject.getItems().get(position).getPubDate());
-        holder.txtAuthor.setText("LSM - Central de Notícias de Maricá - " + rssObject.getItems().get(position).getAuthor());
+        holder.txtAuthor.setText(rssObject.getItems().get(position).getAuthor());
 
-        //holder.imgNoticia.setImageResource(R.drawable.images);
+       // Picasso.get().load(rssObject.getItems().get(position).getThumbnail()).into(holder.imgNoticia);
 
-        //Picasso.get().load(rssObject.getItems().get(position).getThumbnail()).into(holder.imgNoticia);
+       if (rssObject.getItems().get(position).getThumbnail().isEmpty()){
+         Picasso.get().load("http://maricainfo.com/wp-content/uploads/2018/02/img-20180205-wa0012418109014.jpg" ).into(holder.imgNoticia);
+        }else {
+              Picasso.get().load(rssObject.getItems().get(position).getThumbnail()).into(holder.imgNoticia);
+          }
+
 
 
 
@@ -98,7 +105,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
 
     @Override
     public int getItemCount() {
-        return rssObject.items.size();
+        return rssObject.getItems().size();
     }
 }
 

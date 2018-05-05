@@ -1,29 +1,25 @@
 package com.example.adonis.stackice.Fragmentos;
-
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-
 import com.example.adonis.stackice.Adapter.FeedAdapter;
 import com.example.adonis.stackice.Commom.HTTPDataHandler;
-import com.example.adonis.stackice.InicialActivity;
 import com.example.adonis.stackice.Model.RSSObject;
 import com.example.adonis.stackice.R;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 
 public class InicioFragment extends Fragment {
@@ -38,9 +34,11 @@ public class InicioFragment extends Fragment {
 
     RecyclerView recyclerViewListaNoticias;
 
+
+
     RSSObject rssObject;
 
-    private final String RSS_link="http://maricainfo.com/feed";
+    private final String RSS_link="https://feed.rssunify.com/5aed2db6ad845/rss.xml";
 
     private final String RSS_to_Json_API = " https://api.rss2json.com/v1/api.json?rss_url=";
 
@@ -85,21 +83,12 @@ public class InicioFragment extends Fragment {
 
         //RecyclerView Lista Configs
 
-        recyclerViewListaNoticias = view.findViewById(R.id.recyclerviewnoticias);
-
-
-
-
-        //Configurar Adapter
-
+        recyclerViewListaNoticias = (RecyclerView) view.findViewById(R.id.recyclerviewnoticias);
 
 
         //Configurar RecyclerView
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
-        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerViewListaNoticias.setLayoutManager(linearLayoutManager);
-        recyclerViewListaNoticias.setHasFixedSize(false);
-
 
 
         //Carrega o App
@@ -110,12 +99,9 @@ public class InicioFragment extends Fragment {
         swipeLayout = view.findViewById(R.id.menu_refresh);
         swipeLayout.setColorScheme(android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-
-
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                
 
                 loadRSS();
 
@@ -129,6 +115,7 @@ public class InicioFragment extends Fragment {
                         });
                     }
                 }).start();
+
 
             }
         });

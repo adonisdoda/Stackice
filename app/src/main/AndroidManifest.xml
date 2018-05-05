@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.adonis.stackice">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,26 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         //Slider Activity
         <activity
             android:name=".SlideActivity"
-            android:theme="@style/Theme.Intro">
-
-         </activity>
-
-
+            android:theme="@style/Theme.Intro"></activity>
         //Inicio Activity
         <activity android:name=".InicialActivity">
-            <intent-filter>  <action android:name="android.intent.action.MAIN" />  <category android:name="android.intent.category.LAUNCHER" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         //Activity de verificação
-        <activity android:name=".VerificacaoPrimeiraVezActivity">
-
-        </activity>
-
+        <activity android:name=".VerificacaoPrimeiraVezActivity"></activity>
+        <activity android:name=".NavegadorView"></activity>
     </application>
 
 </manifest>

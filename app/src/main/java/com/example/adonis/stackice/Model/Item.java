@@ -1,5 +1,6 @@
 package com.example.adonis.stackice.Model;
 
+import java.util.Date;
 import java.util.List;
 
 public class Item
@@ -107,4 +108,6 @@ public class Item
     public void setCategories(List<Object> categories) {
         this.categories = categories;
     }
+
+
 }
