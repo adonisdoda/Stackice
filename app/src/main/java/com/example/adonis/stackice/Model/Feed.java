@@ -1,13 +1,13 @@
 package com.example.adonis.stackice.Model;
 
-public class Feed {
+public class Feed
+{
     public String url;
     public String title;
     public String link;
     public String author;
     public String description;
     public String image;
-
 
     public Feed(String url, String title, String link, String author, String description, String image) {
         this.url = url;

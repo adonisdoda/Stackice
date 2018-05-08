@@ -1,4 +1,5 @@
 package com.example.adonis.stackice.Fragmentos;
+
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -8,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,9 +19,8 @@ import com.example.adonis.stackice.Commom.HTTPDataHandler;
 import com.example.adonis.stackice.Model.RSSObject;
 import com.example.adonis.stackice.R;
 import com.google.gson.Gson;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import static android.content.ContentValues.TAG;
 
 
 public class InicioFragment extends Fragment {
@@ -34,13 +35,11 @@ public class InicioFragment extends Fragment {
 
     RecyclerView recyclerViewListaNoticias;
 
-
-
     RSSObject rssObject;
 
     private final String RSS_link="https://feed.rssunify.com/5aed2db6ad845/rss.xml";
 
-    private final String RSS_to_Json_API = " https://api.rss2json.com/v1/api.json?rss_url=";
+    private final String RSS_to_Json_API = "https://api.rss2json.com/v1/api.json?rss_url=";
 
     private OnFragmentInteractionListener mListener;
 
@@ -83,12 +82,21 @@ public class InicioFragment extends Fragment {
 
         //RecyclerView Lista Configs
 
-        recyclerViewListaNoticias = (RecyclerView) view.findViewById(R.id.recyclerviewnoticias);
+        recyclerViewListaNoticias = view.findViewById(R.id.recyclerviewnoticias);
+
+
+
+
+        //Configurar Adapter
+
 
 
         //Configurar RecyclerView
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
+        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerViewListaNoticias.setLayoutManager(linearLayoutManager);
+        recyclerViewListaNoticias.setHasFixedSize(false);
+
 
 
         //Carrega o App
@@ -99,9 +107,12 @@ public class InicioFragment extends Fragment {
         swipeLayout = view.findViewById(R.id.menu_refresh);
         swipeLayout.setColorScheme(android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+
+
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+
 
                 loadRSS();
 
@@ -116,7 +127,6 @@ public class InicioFragment extends Fragment {
                     }
                 }).start();
 
-
             }
         });
 
@@ -126,12 +136,12 @@ public class InicioFragment extends Fragment {
     private void loadRSS(){
         AsyncTask<String,String,String> loadRSSAsync = new AsyncTask<String, String, String>() {
 
-           // ProgressDialog mDialog = new ProgressDialog(getActivity());
+            //ProgressDialog mDialog = new ProgressDialog(getActivity());
 
             @Override
             protected void onPreExecute() {
-                //mDialog.setMessage("Aguarde um momento...");
-                //mDialog.show();
+               // mDialog.setMessage("Aguarde um momento...");
+               // mDialog.setVisible(true);
             }
 
             @Override
@@ -144,11 +154,12 @@ public class InicioFragment extends Fragment {
 
             @Override
             protected void onPostExecute(String s) {
-                //mDialog.dismiss();
+               // mDialog.dismiss();
                 rssObject = new Gson().fromJson(s, RSSObject.class);
                 FeedAdapter adapter = new FeedAdapter(rssObject, getActivity());
                 recyclerViewListaNoticias.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
+                Log.i(TAG, "Size= "+rssObject.items.size());
             }
         };
 

@@ -1,22 +1,21 @@
 package com.example.adonis.stackice.Model;
 
-import java.util.Date;
 import java.util.List;
 
 public class Item
 {
-    public String title ;
-    public String pubDate ;
-    public String link ;
-    public String guid ;
+    public String title;
+    public String pubDate;
+    public String link;
+    public String guid;
     public String author;
     public String thumbnail;
-    public String description ;
-    public String content ;
-    public Object enclosure ;
-    public List<Object> categories ;
+    public String description;
+    public String content;
+    public Object enclosure;
+    public List<String> categories;
 
-    public Item(String title, String pubDate, String link, String guid, String author, String thumbnail, String description, String content, Enclosure enclosure, List<Object> categories) {
+    public Item(String title, String pubDate, String link, String guid, String author, String thumbnail, String description, String content, Object enclosure, List<String> categories) {
         this.title = title;
         this.pubDate = pubDate;
         this.link = link;
@@ -101,13 +100,11 @@ public class Item
         this.enclosure = enclosure;
     }
 
-    public List<Object> getCategories() {
+    public List<String> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<Object> categories) {
+    public void setCategories(List<String> categories) {
         this.categories = categories;
     }
-
-
 }

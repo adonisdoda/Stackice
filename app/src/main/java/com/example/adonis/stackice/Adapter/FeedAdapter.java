@@ -14,13 +14,12 @@ import android.widget.TextView;
 import com.example.adonis.stackice.Interface.ItemClickListener;
 import com.example.adonis.stackice.Model.RSSObject;
 import com.example.adonis.stackice.R;
-import com.example.adonis.stackice.NavegadorView;
 import com.squareup.picasso.Picasso;
 
 
 class FeedViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
-    public TextView txtTitle,txtAuthor,txtPubDate;
+    public TextView txtTitle,txtPubDate,txtAuthor;
     private ItemClickListener itemClickListener;
     public ImageView imgNoticia;
 
@@ -63,7 +62,6 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
     public FeedAdapter(RSSObject rssObject, Context mContext) {
         this.rssObject = rssObject;
         this.mContext = mContext;
-
         inflater = LayoutInflater.from(mContext);
     }
 
@@ -73,6 +71,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
         return new FeedViewHolder(itemView);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull FeedViewHolder holder, int position) {
 
@@ -80,13 +79,20 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
         holder.txtPubDate.setText(rssObject.getItems().get(position).getPubDate());
         holder.txtAuthor.setText(rssObject.getItems().get(position).getAuthor());
 
-       // Picasso.get().load(rssObject.getItems().get(position).getThumbnail()).into(holder.imgNoticia);
 
-       if (rssObject.getItems().get(position).getThumbnail().isEmpty()){
-         Picasso.get().load("http://maricainfo.com/wp-content/uploads/2018/02/img-20180205-wa0012418109014.jpg" ).into(holder.imgNoticia);
-        }else {
-              Picasso.get().load(rssObject.getItems().get(position).getThumbnail()).into(holder.imgNoticia);
-          }
+
+
+        //String imageUrl= rssObject.getItems().get(position).description.substring(rssObject.getItems().get(position).description.indexOf("src=")+5 ,rssObject.getItems().get(position).description.indexOf("jpg")+3);
+        //Picasso.get().load(rssObject.getItems().get(position).description.substring(rssObject.getItems().get(position).description.indexOf("src=")+5 ,rssObject.getItems().get(position).description.indexOf("jpg")+3)).into(holder.imgNoticia);
+
+
+        if (rssObject.getItems().get(position).getThumbnail().isEmpty()) {
+
+            Picasso.get().load("http://www.lostinwanderlust.co.uk/wp-content/uploads/2017/12/darkrift-orig_full.jpg" ).into(holder.imgNoticia);
+        }else if(rssObject.getItems().get(position).getThumbnail() != null) {
+            Picasso.get().load(rssObject.getItems().get(position).getThumbnail()).into(holder.imgNoticia);
+        }
+
 
 
 
@@ -105,7 +111,6 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
 
     @Override
     public int getItemCount() {
-        return rssObject.getItems().size();
+        return rssObject.items.size();
     }
 }
-

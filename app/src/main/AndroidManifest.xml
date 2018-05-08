@@ -25,7 +25,6 @@
         </activity>
         //Activity de verificação
         <activity android:name=".VerificacaoPrimeiraVezActivity"></activity>
-        <activity android:name=".NavegadorView"></activity>
     </application>
 
 </manifest>

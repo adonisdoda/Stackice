@@ -1,27 +1,13 @@
 package com.example.adonis.stackice;
 
 
-import android.Manifest;
-import android.app.ProgressDialog;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import com.example.adonis.stackice.Adapter.FeedAdapter;
-import com.example.adonis.stackice.Commom.HTTPDataHandler;
 import com.example.adonis.stackice.Fragmentos.InicioFragment;
 import com.example.adonis.stackice.Fragmentos.LocalizacaoFragment;
-import com.example.adonis.stackice.Model.RSSObject;
-import com.google.gson.Gson;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
