@@ -82,17 +82,19 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
 
 
 
-        //String imageUrl= rssObject.getItems().get(position).description.substring(rssObject.getItems().get(position).description.indexOf("src=")+5 ,rssObject.getItems().get(position).description.indexOf("jpg")+3);
+
         //Picasso.get().load(rssObject.getItems().get(position).description.substring(rssObject.getItems().get(position).description.indexOf("src=")+5 ,rssObject.getItems().get(position).description.indexOf("jpg")+3)).into(holder.imgNoticia);
 
 
-        if (rssObject.getItems().get(position).getThumbnail().isEmpty()) {
+        if ( rssObject.getItems().get(position).getThumbnail().isEmpty()) {
 
-            Picasso.get().load("http://www.lostinwanderlust.co.uk/wp-content/uploads/2017/12/darkrift-orig_full.jpg" ).into(holder.imgNoticia);
+            Picasso.get().load("https://leisecamarica.com.br/wp-content/uploads/2018/01/LSM-transp-VERM2.png" ).into(holder.imgNoticia);
+
         }else if(rssObject.getItems().get(position).getThumbnail() != null) {
-            Picasso.get().load(rssObject.getItems().get(position).getThumbnail()).into(holder.imgNoticia);
-        }
 
+            Picasso.get().load(rssObject.getItems().get(position).getThumbnail()).into(holder.imgNoticia);
+
+        }
 
 
 
