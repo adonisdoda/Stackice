@@ -25,7 +25,7 @@ public class HTTPDataHandler {
 
             if(urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK)
             {
-                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                InputStream in = new BufferedInputStream(urlConnection.getInputStream(),10);
 
                 BufferedReader r = new BufferedReader(new InputStreamReader(in));
                 StringBuilder sb = new StringBuilder();
@@ -40,6 +40,8 @@ public class HTTPDataHandler {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+
         }
 
         return stream;

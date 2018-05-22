@@ -39,7 +39,8 @@ public class InicioFragment extends Fragment {
 
     private final String RSS_link="https://feed.rssunify.com/5aed2db6ad845/rss.xml";
 
-    private final String RSS_to_Json_API = "https://api.rss2json.com/v1/api.json?rss_url=";
+    //Here I can change the count of articles and method of update
+    private final String RSS_to_Json_API = "https://api.rss2json.com/v1/api.json?count=50&api_key=fplawnxiyd7495iokuddbsoeqwdx7nqe5ba9vhaa&rss_url=";
 
     private OnFragmentInteractionListener mListener;
 
