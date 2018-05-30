@@ -7,17 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
 import com.example.adonis.stackice.R;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.Picasso;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link LocalizacaoFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link LocalizacaoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class LocalizacaoFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,20 +24,24 @@ public class LocalizacaoFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    ViewFlipper mySlider;
+
+    String BannerArray[] =
+                    {"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hgM1tUQkLTmrjl4nZceqHmJijxvK-9Oa5VTBFTtw6Q2Vn-72DA",
+                    "http://78.media.tumblr.com/8e9b3fd1f007ca5470d10c8e8de637ff/tumblr_nn82xvY8li1tv4hrso3_1280.jpg",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hgM1tUQkLTmrjl4nZceqHmJijxvK-9Oa5VTBFTtw6Q2Vn-72DA",
+                    "http://78.media.tumblr.com/8e9b3fd1f007ca5470d10c8e8de637ff/tumblr_nn82xvY8li1tv4hrso3_1280.jpg"};
+
+
+
     private OnFragmentInteractionListener mListener;
 
     public LocalizacaoFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LocalizacaoFragment.
-     */
+
+
     // TODO: Rename and change types and number of parameters
     public static LocalizacaoFragment newInstance(String param1, String param2) {
         LocalizacaoFragment fragment = new LocalizacaoFragment();
@@ -64,11 +64,51 @@ public class LocalizacaoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_localizacao, container, false);
+
+
+        View view =  inflater.inflate(R.layout.fragment_localizacao, container, false);
+
+        mySlider = (ViewFlipper) view.findViewById(R.id.slider);
+
+        for (int i=0; i< BannerArray.length ; i++)
+        {
+            setBannerSlide(BannerArray[i]);
+        }
+
+
+
+
+
+
+        return  view;
+
+
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
+
+    //BANNER SET
+    public void setBannerSlide(String imgUrl){
+
+        ImageView image = new ImageView(getActivity());
+
+        image.setScaleType(ImageView.ScaleType.FIT_XY);
+
+        Picasso.get().load(imgUrl).memoryPolicy(MemoryPolicy.NO_CACHE).into(image);
+
+        mySlider.addView(image);
+        mySlider.setFlipInterval(4500);
+        mySlider.setAutoStart(true);
+        mySlider.setInAnimation(getActivity(),R.anim.animacaoentradabanner);
+        mySlider.setOutAnimation(getActivity(),R.anim.animacaosaidabanner);
+
+    }
+
+
+
+
+    //GERADOS PELO SISTEMA
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -92,16 +132,6 @@ public class LocalizacaoFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

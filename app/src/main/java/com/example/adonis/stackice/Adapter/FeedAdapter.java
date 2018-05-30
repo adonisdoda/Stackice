@@ -26,6 +26,7 @@ class FeedViewHolder extends RecyclerView.ViewHolder implements View.OnClickList
     private ItemClickListener itemClickListener;
     public ImageView imgNoticia;
 
+
     public FeedViewHolder(View itemView) {
         super(itemView);
 
@@ -37,7 +38,9 @@ class FeedViewHolder extends RecyclerView.ViewHolder implements View.OnClickList
         itemView.setOnClickListener(this);
         itemView.setOnLongClickListener(this);
 
-        
+
+
+
 
 
 
@@ -75,7 +78,8 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
 
     @Override
     public FeedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.cardviewistanoticiasmodelo,parent,false);
+
+                View itemView = inflater.inflate(R.layout.cardviewistanoticiasmodelo,parent,false);
         return new FeedViewHolder(itemView);
     }
 
@@ -103,7 +107,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
         {
             if(rssObject.getItems().get(position).getThumbnail().isEmpty()){
 
-                Picasso.get().load("http://maricainfo.com/wp-content/uploads/2017/06/logo-2017.png").into(holder.imgNoticia);
+                Picasso.get().load("http://maricainfo.com/wp-content/uploads/2017/06/logo-2017.png").placeholder(R.drawable.imagem1).into(holder.imgNoticia);
             }else{
 
                 Picasso.get().load(rssObject.getItems().get(position).getThumbnail()).into(holder.imgNoticia);
@@ -113,10 +117,6 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
 
 
 
-
-
-
-        //Picasso.get().load(rssObject.getItems().get(position).description.substring(rssObject.getItems().get(position).description.indexOf("src=")+5 ,rssObject.getItems().get(position).description.indexOf("jpg")+3)).into(holder.imgNoticia);
 
 
 
