@@ -3,7 +3,6 @@ package com.example.adonis.stackice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 

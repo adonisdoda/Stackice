@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:animationCache="false"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragmentos.InicioFragment"
-    android:id="@+id/menu_refresh">
+    >
 
-    <RelativeLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:id="@+id/menu_refresh">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerviewnoticias"
@@ -22,20 +21,11 @@
             android:scrollbars="none"
             app:titleTextColor="@android:color/white" />
 
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressoBaixo"
-            android:visibility="gone"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 
 
-    </RelativeLayout>
 
 
-
-
-</android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

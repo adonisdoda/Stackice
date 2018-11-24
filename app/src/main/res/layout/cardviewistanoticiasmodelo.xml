@@ -1,114 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    >
+    android:layout_marginLeft="7dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginRight="7dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="9dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary"
-        >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
         <ImageView
             android:id="@+id/imagemNoticia"
-            android:scaleType="fitXY"
             android:layout_width="match_parent"
-            android:layout_height="225dp"
+            android:layout_height="226dp"
+            android:background="@drawable/crdformato"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="79dp"
+            android:alpha="0.74"
+            android:background="@drawable/crdgradiente"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            android:background="@color/colorAccent"
-            android:alpha="0.6"
-
-            />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/autorNoticia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/zillaslab_regular"
             android:text="Tecmundo"
-            android:textColor="@color/textoTab"
+            android:textColor="@color/colorSecundary"
             android:textSize="10dp"
             android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/tituloNoticia"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.029"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/tituloNoticia"
-            android:layout_width="358dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:breakStrategy="simple"
-            android:maxHeight="100dp"
-            android:maxWidth="380dp"
-            android:paddingLeft="3dp"
-            android:paddingRight="3dp"
-            android:text="saddasfasfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
-            android:fontFeatureSettings="@color/colorPrimaryDark"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:breakStrategy="high_quality"
+            android:ellipsize="end"
+            android:fontFamily="@font/zillaslab_semibold"
+            android:maxLines="2"
+            android:paddingRight="1dp"
             android:textAllCaps="true"
             android:textColor="@color/colorAccent"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.384"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.754" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <TextView
-            android:id="@+id/textPubDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/textoTab"
-            android:textSize="8dp"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="@+id/imagemNoticia"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.945"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tituloNoticia"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/curtirNoticia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginTop="5dp"
-            android:text="Curtir"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/crddots"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.045"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagemNoticia"
-            app:layout_constraintVertical_bias="0.285" />
+            app:layout_constraintTop_toBottomOf="@+id/tituloNoticia" />
 
-        <TextView
-            android:id="@+id/compartilharNoticia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="5dp"
-            android:text="Compartilhar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.947"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagemNoticia"
-            app:layout_constraintVertical_bias="0.285" />
 
     </android.support.constraint.ConstraintLayout>
 

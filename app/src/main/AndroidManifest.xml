@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,20 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        //Slider Activity
+
         <activity
             android:name=".SlideActivity"
-            android:theme="@style/Theme.Intro"></activity>
-        //Inicio Activity
-        <activity android:name=".InicialActivity">
+            android:theme="@style/Theme.Intro" />
+
+        <activity android:name=".InicialActivity"/>
+
+        <activity android:name=".VerificacaoPrimeiraVezActivity" />
+
+        <activity android:name=".Fragmentos.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        //Activity de verificação
-        <activity android:name=".VerificacaoPrimeiraVezActivity"></activity>
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -26,11 +27,8 @@ import static android.content.ContentValues.TAG;
 public class InicioFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
-
     private static final String ARG_PARAM2 = "param2";
-
     private String mParam1;
-
     private String mParam2;
 
     RecyclerView recyclerViewListaNoticias;
@@ -39,7 +37,6 @@ public class InicioFragment extends Fragment {
 
     private final String RSS_link="https://feed.rssunify.com/5aed2db6ad845/rss.xml";
 
-    //Here I can change the count of articles and method of update
     private final String RSS_to_Json_API = "https://api.rss2json.com/v1/api.json?count=50&api_key=fplawnxiyd7495iokuddbsoeqwdx7nqe5ba9vhaa&rss_url=";
 
     private OnFragmentInteractionListener mListener;
@@ -47,10 +44,7 @@ public class InicioFragment extends Fragment {
     SwipeRefreshLayout swipeLayout;
 
 
-
-
     public InicioFragment() {
-        // Required empty public constructor
     }
 
     public static InicioFragment newInstance(String param1, String param2) {
@@ -66,57 +60,34 @@ public class InicioFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+        //Carrega os cardviews
+        loadRSS();
 
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
+    {
         View view = inflater.inflate(R.layout.fragment_inicio, container, false);
 
-        //RecyclerView Lista Configs
-
+        //Configurações RecyclerView
         recyclerViewListaNoticias = view.findViewById(R.id.recyclerviewnoticias);
-
-
-
-
-        //Configurar Adapter
-
-
-
-        //Configurar RecyclerView
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
-        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerViewListaNoticias.setLayoutManager(linearLayoutManager);
         recyclerViewListaNoticias.setHasFixedSize(false);
 
-
-
-        //Carrega o App
-        loadRSS();
-
-
-        //SwipeLayout
+        //Atualizar Página
         swipeLayout = view.findViewById(R.id.menu_refresh);
-        swipeLayout.setColorScheme(android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
-
-
+        swipeLayout.setColorScheme(android.R.color.holo_orange_light,android.R.color.holo_red_light);
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-
-
                 loadRSS();
-
                 new Thread(new Runnable() {
                     public void run() {
                         SystemClock.sleep(1000);
@@ -127,21 +98,19 @@ public class InicioFragment extends Fragment {
                         });
                     }
                 }).start();
-
             }
         });
 
         return view;
     }
 
+
     private void loadRSS(){
         AsyncTask<String,String,String> loadRSSAsync = new AsyncTask<String, String, String>() {
-
             //ProgressDialog mDialog = new ProgressDialog(getActivity());
-
             @Override
             protected void onPreExecute() {
-               // mDialog.setMessage("Aguarde um momento...");
+               // mDialog.setMessage("ISH...Est");
                // mDialog.setVisible(true);
             }
 
@@ -167,7 +136,6 @@ public class InicioFragment extends Fragment {
         StringBuilder url_get_data = new StringBuilder(RSS_to_Json_API);
         url_get_data.append(RSS_link);
         loadRSSAsync.execute(url_get_data.toString());
-
     }
 
 
