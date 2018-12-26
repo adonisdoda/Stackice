@@ -80,7 +80,6 @@ public class LocalizacaoFragment extends Fragment implements Serializable{
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
     }
 
     @Override
@@ -88,9 +87,7 @@ public class LocalizacaoFragment extends Fragment implements Serializable{
                              Bundle savedInstanceState)
     {
         View view =  inflater.inflate(R.layout.fragment_localizacao, container, false);
-
         mySlider = view.findViewById(R.id.slider);
-
         Intent chamadaActivity = getActivity().getIntent();
 
         list = (List<Propaganda>) chamadaActivity.getSerializableExtra("Lista");
@@ -100,7 +97,6 @@ public class LocalizacaoFragment extends Fragment implements Serializable{
         {
             setBannerSlide(list.get(i).getLink());
         }
-
         return  view;
     }
 

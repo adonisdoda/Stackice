@@ -28,24 +28,16 @@ public class InicioFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private final String RSS_link="https://feed.rssunify.com/5aed2db6ad845/rss.xml";
+    private final String RSS_to_Json_API = "https://api.rss2json.com/v1/api.json?count=50&api_key=fplawnxiyd7495iokuddbsoeqwdx7nqe5ba9vhaa&rss_url=";
     private String mParam1;
     private String mParam2;
-
-    RecyclerView recyclerViewListaNoticias;
-
-    RSSObject rssObject;
-
-    private final String RSS_link="https://feed.rssunify.com/5aed2db6ad845/rss.xml";
-
-    private final String RSS_to_Json_API = "https://api.rss2json.com/v1/api.json?count=50&api_key=fplawnxiyd7495iokuddbsoeqwdx7nqe5ba9vhaa&rss_url=";
-
     private OnFragmentInteractionListener mListener;
 
+    RecyclerView recyclerViewListaNoticias;
+    RSSObject rssObject;
     SwipeRefreshLayout swipeLayout;
 
-
-    public InicioFragment() {
-    }
 
     public static InicioFragment newInstance(String param1, String param2) {
         InicioFragment fragment = new InicioFragment();
