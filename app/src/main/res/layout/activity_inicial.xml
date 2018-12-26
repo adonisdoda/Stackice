@@ -8,50 +8,28 @@
     android:orientation="vertical">
 
 
-
-
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:background="@color/colorSecundary"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/viewPagerTab"
+        app:layout_constraintBottom_toTopOf="@+id/tablayout"
         app:layout_constraintTop_toTopOf="parent">
 
     </android.support.v4.view.ViewPager>
 
-
-    <com.ogaclejapan.smarttablayout.SmartTabLayout
-        android:id="@+id/viewPagerTab"
-        android:layout_weight="0"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorSecundary"
-        app:stl_clickable="true"
-        app:stl_defaultTabTextAllCaps="true"
-        app:stl_defaultTabTextColor="@color/colorPrimary"
-        app:stl_defaultTabTextHorizontalPadding="16dp"
-        app:stl_defaultTabTextMinWidth="0dp"
-        app:stl_defaultTabTextSize="19dp"
-        app:stl_distributeEvenly="true"
-        app:stl_dividerColor="#ffffff"
-        app:stl_dividerThickness="0dp"
-        app:stl_drawDecorationAfterTab="true"
-        app:stl_indicatorColor="@color/colorPrimary"
-        app:stl_indicatorCornerRadius="0dp"
-        app:stl_indicatorGravity="top"
-        app:stl_indicatorInFront="true"
-        app:stl_indicatorInterpolation="smart"
-        app:stl_indicatorThickness="2dp"
-        app:stl_indicatorWidth="140dp"
-        app:stl_indicatorWithoutPadding="true"
-        app:stl_overlineColor="@color/colorPrimary"
-        app:stl_overlineThickness="0dp"
-        app:stl_titleOffset="24dp"
-        app:stl_customTabTextLayoutId="@layout/lettertab"
-        />
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:tabIndicatorColor="@color/textoTab"
+        app:tabGravity="fill"
+        app:tabMode="fixed">
+    </android.support.design.widget.TabLayout>
+
+
 
 
 

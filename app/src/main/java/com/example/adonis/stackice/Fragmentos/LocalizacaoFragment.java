@@ -35,26 +35,13 @@ public class LocalizacaoFragment extends Fragment implements Serializable{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private OnFragmentInteractionListener mListener;
-
     private String mParam1;
-
     private String mParam2;
-
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-
     DatabaseReference ReferenciaPropagandas = database.child("Propagandas");
 
     ViewFlipper mySlider;
-
     private static List<Propaganda> list = new ArrayList<>();
-
-    String BannerArray[] =
-            {
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hgM1tUQkLTmrjl4nZceqHmJijxvK-9Oa5VTBFTtw6Q2Vn-72DA",
-            "http://78.media.tumblr.com/8e9b3fd1f007ca5470d10c8e8de637ff/tumblr_nn82xvY8li1tv4hrso3_1280.jpg",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hgM1tUQkLTmrjl4nZceqHmJijxvK-9Oa5VTBFTtw6Q2Vn-72DA",
-            "http://78.media.tumblr.com/8e9b3fd1f007ca5470d10c8e8de637ff/tumblr_nn82xvY8li1tv4hrso3_1280.jpg"
-            };
 
 
     public LocalizacaoFragment() {
@@ -83,32 +70,37 @@ public class LocalizacaoFragment extends Fragment implements Serializable{
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
     {
         View view =  inflater.inflate(R.layout.fragment_localizacao, container, false);
-        mySlider = view.findViewById(R.id.slider);
         Intent chamadaActivity = getActivity().getIntent();
-
+        mySlider = view.findViewById(R.id.slider);
         list = (List<Propaganda>) chamadaActivity.getSerializableExtra("Lista");
 
-        //Aqui eu seto o slider
         for(int i=0; i < list.size(); i++)
         {
             setBannerSlide(list.get(i).getLink());
         }
+       // chamaLinkPropaganda();
         return  view;
     }
 
+       // public void chamaLinkPropaganda(){
+       //     Intent chamadaActivity = getActivity().getIntent();
+       //     list = (List<Propaganda>) chamadaActivity.getSerializableExtra("Lista");
+       //
+       //     for(int i=0; i < list.size(); i++)
+       //     {
+       //         setBannerSlide(list.get(i).getLink());
+       //     }
+       //
+       // }
 
-
-    //BANNER SET
     public void setBannerSlide(String imgUrl){
 
         ImageView image = new ImageView(getActivity());
 
         image.setScaleType(ImageView.ScaleType.FIT_XY);
-
         Picasso.get().load(imgUrl).into(image);
 
         mySlider.addView(image);
@@ -130,16 +122,14 @@ public class LocalizacaoFragment extends Fragment implements Serializable{
                     Propaganda propaganda = new Propaganda(childDataSnapshot.getValue().toString());
 
                     list.add(propaganda);
-
                 }
-
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-
     }
 
     public void onButtonPressed(Uri uri) {
