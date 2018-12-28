@@ -26,40 +26,23 @@ import static android.content.ContentValues.TAG;
 
 public class InicioFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    RecyclerView listaDeNoticias;
+    SwipeRefreshLayout atualizarNoticias;
+    RSSObject rssObject;
+    private OnFragmentInteractionListener mListener;
     private final String RSS_link="https://feed.rssunify.com/5aed2db6ad845/rss.xml";
     private final String RSS_to_Json_API = "https://api.rss2json.com/v1/api.json?count=50&api_key=fplawnxiyd7495iokuddbsoeqwdx7nqe5ba9vhaa&rss_url=";
-    private String mParam1;
-    private String mParam2;
-    private OnFragmentInteractionListener mListener;
-
-    RecyclerView recyclerViewListaNoticias;
-    RSSObject rssObject;
-    SwipeRefreshLayout swipeLayout;
 
 
-    public static InicioFragment newInstance(String param1, String param2) {
-        InicioFragment fragment = new InicioFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public static InicioFragment newInstance() {
+        return new InicioFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
-        //Carrega os cardviews
-        loadRSS();
-
+        carregaRss();
     }
 
     @Override
@@ -67,25 +50,24 @@ public class InicioFragment extends Fragment {
     {
         View view = inflater.inflate(R.layout.fragment_inicio, container, false);
 
-        //Configurações RecyclerView
-        recyclerViewListaNoticias = view.findViewById(R.id.recyclerviewnoticias);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
-        recyclerViewListaNoticias.setLayoutManager(linearLayoutManager);
-        recyclerViewListaNoticias.setHasFixedSize(false);
+        listaDeNoticias = view.findViewById(R.id.recyclerviewnoticias);
+        listaDeNoticias.setLayoutManager(linearLayoutManager);
+        listaDeNoticias.setHasFixedSize(false);
 
-        //Atualizar Página
-        swipeLayout = view.findViewById(R.id.menu_refresh);
-        swipeLayout.setColorScheme(android.R.color.holo_orange_light,android.R.color.holo_red_light);
-        swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+
+        atualizarNoticias = view.findViewById(R.id.menu_refresh);
+        atualizarNoticias.setColorScheme(android.R.color.holo_orange_light,android.R.color.holo_red_light);
+        atualizarNoticias.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                loadRSS();
+                carregaRss();
                 new Thread(new Runnable() {
                     public void run() {
                         SystemClock.sleep(1000);
                         getActivity().runOnUiThread(new Runnable() {
                             public void run() {
-                                swipeLayout.setRefreshing(false);
+                                atualizarNoticias.setRefreshing(false);
                             }
                         });
                     }
@@ -97,7 +79,7 @@ public class InicioFragment extends Fragment {
     }
 
 
-    private void loadRSS(){
+    private void carregaRss(){
         AsyncTask<String,String,String> loadRSSAsync = new AsyncTask<String, String, String>() {
             //ProgressDialog mDialog = new ProgressDialog(getActivity());
             @Override
@@ -119,7 +101,7 @@ public class InicioFragment extends Fragment {
                // mDialog.dismiss();
                 rssObject = new Gson().fromJson(s, RSSObject.class);
                 FeedAdapter adapter = new FeedAdapter(rssObject, getActivity());
-                recyclerViewListaNoticias.setAdapter(adapter);
+                listaDeNoticias.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 Log.i(TAG, "Size= "+rssObject.items.size());
             }
@@ -131,13 +113,11 @@ public class InicioFragment extends Fragment {
     }
 
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(item.getItemId() == R.id.menu_refresh)
-            loadRSS();
+            carregaRss();
         return true;
     }
 
@@ -166,7 +146,6 @@ public class InicioFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }

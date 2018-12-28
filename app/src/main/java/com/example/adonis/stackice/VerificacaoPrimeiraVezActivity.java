@@ -14,12 +14,13 @@ public class VerificacaoPrimeiraVezActivity extends AppCompatActivity {
         Boolean isFirstRun = getSharedPreferences("PREFERENCE",MODE_PRIVATE).getBoolean("isfirstrun",true);
 
         if(isFirstRun){
-            Intent intent = new Intent(getApplicationContext(), SlideActivity.class );
+            Intent intentSlideActivity = new Intent(getApplicationContext(), SlideActivity.class );
             getSharedPreferences("PREFERENCE",MODE_PRIVATE).edit().putBoolean("isfirstrun",false).commit();
-            startActivity(intent);
-        }else{
-            Intent intentinicio = new Intent(getApplicationContext(), InicialActivity.class );
-            startActivity(intentinicio);
+            startActivity(intentSlideActivity);
+        }
+        else{
+            Intent intentHomeActivity = new Intent(getApplicationContext(), InicialActivity.class );
+            startActivity(intentHomeActivity);
         }
     }
 }

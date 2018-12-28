@@ -40,7 +40,6 @@ dependencies {
     //Bibliotecas para Abas
     implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     //Optional: see how to use the utility.
-    implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
     implementation 'com.android.support:design:27.1.1'
 
     /*Dependências de RecyclerView,CardView etc */
