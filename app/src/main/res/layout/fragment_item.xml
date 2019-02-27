@@ -1,0 +1,305 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSecundary"
+    tools:context=".Fragmentos.ItemFragment">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="59dp"
+        android:layout_height="25dp"
+        android:orientation="horizontal" />
+
+    <ViewFlipper
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:background="@color/colorPrimaryDetails"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ViewFlipper>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/caixa_boasvindas"
+        android:layout_width="305dp"
+        android:layout_height="70sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/cx_formato_boasvindas"
+        android:elevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="10dp"
+
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/zillaslab_bold"
+            android:text="OLÁ"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/zillaslab_regular"
+            android:text="nós preparamos algumas coisinhas para você!"
+            android:textColor="@color/textoTab"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline3" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="289dp" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/caixa_cupons"
+        android:layout_width="305dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/cx_formato_cupons"
+        android:elevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.564"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caixa_boasvindas" >
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/cupomid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="1dp"
+                android:elevation="2dp"
+                android:fontFamily="@font/zillaslab_bold"
+                android:text="@string/cupom_desconto"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/cupomdesconto"
+                app:layout_constraintTop_toTopOf="@+id/guideline66" />
+
+            <TextView
+                android:layout_width="91dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:elevation="2dp"
+                android:breakStrategy="high_quality"
+                android:fontFamily="@font/zillaslab_regular"
+                android:text="@string/frase_desconto"
+                android:textColor="@color/colorAccent"
+                android:textSize="9sp"
+                app:layout_constraintStart_toStartOf="@+id/cupomdesconto"
+                app:layout_constraintTop_toBottomOf="@+id/cupomid" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/img_desconto"
+                android:elevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/cupomdesconto"
+                app:layout_constraintTop_toTopOf="@+id/guideline66" />
+
+            <ImageView
+                android:id="@+id/cupomdesconto"
+                android:layout_width="125dp"
+                android:layout_height="80dp"
+                android:background="@drawable/cupom_formato"
+                android:elevation="1dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline55"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline66"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline55"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.52" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline66"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.27" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="1dp"
+                android:elevation="2dp"
+                android:fontFamily="@font/zillaslab_bold"
+                android:text="@string/cupom_locais"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/cupomlocais"
+                app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+            <TextView
+                android:layout_width="72dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:breakStrategy="high_quality"
+                android:elevation="2dp"
+                android:fontFamily="@font/zillaslab_regular"
+                android:text="@string/frase_locais"
+                android:textColor="@color/colorAccent"
+                android:textSize="9sp"
+                app:layout_constraintEnd_toStartOf="@+id/cupomLocaisLogo"
+                app:layout_constraintStart_toStartOf="@+id/cupomlocais"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <ImageView
+                android:id="@+id/cupomLocaisLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/img_locais"
+                android:elevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/cupomlocais"
+                app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+
+            <ImageView
+                android:id="@+id/cupomlocais"
+                android:layout_width="125dp"
+                android:layout_height="80dp"
+                android:background="@drawable/cupom_formato"
+                android:elevation="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline5"
+                app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.52" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.27" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/caixa_falecomagente"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/cx_formato_boasvindas"
+        android:elevation="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caixa_cupons"
+        app:layout_constraintVertical_bias="0.292">
+
+        <ImageView
+            android:id="@+id/botao_falecomagente"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/img_seta"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/zillaslab_regular"
+            android:text="Fale com a gente"
+            android:textColor="@color/textoTab"
+            android:textSize="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="177dp" />
+
+
+</android.support.constraint.ConstraintLayout>

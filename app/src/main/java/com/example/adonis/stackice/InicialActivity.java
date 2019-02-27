@@ -9,9 +9,9 @@ import android.os.Bundle;
 
 import com.example.adonis.stackice.Adapter.ViewPagerAdapter;
 import com.example.adonis.stackice.Fragmentos.InicioFragment;
-import com.example.adonis.stackice.Fragmentos.LocalizacaoFragment;
+import com.example.adonis.stackice.Fragmentos.ItemFragment;
 
-public class InicialActivity extends AppCompatActivity implements InicioFragment.OnFragmentInteractionListener,LocalizacaoFragment.OnFragmentInteractionListener
+public class InicialActivity extends AppCompatActivity implements InicioFragment.OnFragmentInteractionListener,ItemFragment.OnFragmentInteractionListener
 {
 
     private TabLayout tabLayout;
@@ -19,7 +19,7 @@ public class InicialActivity extends AppCompatActivity implements InicioFragment
     private ViewPagerAdapter adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
 
@@ -28,7 +28,7 @@ public class InicialActivity extends AppCompatActivity implements InicioFragment
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.AddFragment(new InicioFragment(),"");
-        adapter.AddFragment(new LocalizacaoFragment(),"");
+        adapter.AddFragment(new ItemFragment(),"");
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);

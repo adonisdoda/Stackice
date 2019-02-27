@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MensagemActivity"
+    android:background="@color/colorSecundary"
+    >
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="563dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <ImageView
+            android:id="@+id/botaoVoltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:srcCompat="@drawable/img_setaroxa" />
+
+        <TextView
+            android:id="@+id/nomeTexto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="-70dp"
+            android:fontFamily="@font/zillaslab_regular"
+            android:text="NOME" />
+
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/cx_texto_modelo"
+            android:ems="15"
+            android:fontFamily="@font/zillaslab_regular"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDetails"
+            android:textColorHint="@color/TextoHint" />
+
+        <TextView
+            android:id="@+id/cidadeTexto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="-60dp"
+            android:fontFamily="@font/zillaslab_regular"
+            android:text="CIDADE" />
+
+        <EditText
+            android:id="@+id/cidade"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/cx_texto_modelo"
+            android:ems="15"
+            android:fontFamily="@font/zillaslab_regular"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDetails"
+            android:textColorHint="@color/TextoHint" />
+
+        <TextView
+            android:id="@+id/mensagemTexto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="-60dp"
+            android:fontFamily="@font/zillaslab_regular"
+            android:text="O QUE VOCÊ TEM PARA NOS CONTAR? " />
+
+        <EditText
+            android:id="@+id/mensagem"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/cx_texto_modelo"
+            android:breakStrategy="high_quality"
+            android:ems="15"
+            android:fontFamily="@font/zillaslab_regular"
+            android:gravity="fill_horizontal"
+            android:minLines="1"
+            android:padding="10dp"
+            android:scrollHorizontally="false"
+            android:textColor="@color/colorPrimaryDetails"
+            android:textColorHint="@color/TextoHint" />
+
+        <Button
+            android:id="@+id/botao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/formato_botao"
+            android:fontFamily="@font/zillaslab_bold"
+            android:text="ENVIAR"
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

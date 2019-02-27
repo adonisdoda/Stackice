@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#E5C38C</color>
+    <color name="colorPrimary">#eaa644</color>
 
-    <color name="colorSecundary">#FFFFFF</color>
+    <color name="colorAccent">#FFFFFF</color>
 
-    <color name="colorAccent">#F2F2F2</color>
+    <color name="colorSecundary">#F2F2F2</color>
 
-    <color name="textoTab">#AAAAAA</color>
+    <color name="textoTab">#aaaaaa</color>
+
+    <color name="textoTabSecundary">#AAAAAA</color>
 
     <color name="colorDark">#151e29</color>
 
@@ -16,6 +18,19 @@
     <color name="colorPrimaryAutorNoticia">#73192532</color>
 
     <color name="colorPrimaryTituloNoticia">#99192532</color>
+
+
+
+    /*Slide Layouts*/
+
+    <color name="Background">#4F324D</color>
+
+    <color name="Botão">#472E46</color>
+
+
+    /*Caixas Texto*/
+
+    <color name="TextoHint">#F4F4F4</color>
 
 
 

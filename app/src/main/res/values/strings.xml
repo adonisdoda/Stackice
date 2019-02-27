@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Stackice</string>
 
+    <string name="cupom_desconto">CUPONS</string>
+    <string name="cupom_locais">LOCAIS</string>
+
+    <string name="frase_desconto">Em breve uma supresa para você</string>
+    <string name="frase_locais">Em breve uma supresa para você</string>
+
 
 </resources>
